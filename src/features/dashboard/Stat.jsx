@@ -1,8 +1,11 @@
-import styled from 'styled-components';
-import { box } from 'styles/styles';
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const StyledStat = styled.div`
-  ${box}
+  /* Box */
+  background-color: var(--color-grey-0);
+  border: 1px solid var(--color-grey-100);
+  border-radius: var(--border-radius-md);
 
   padding: 1.6rem;
   display: grid;
@@ -43,7 +46,6 @@ const Value = styled.p`
   font-size: 2.4rem;
   line-height: 1;
   font-weight: 500;
-  /* color: var(--color-grey-600); */
 `;
 
 function Stat({ icon, title, value, color }) {
@@ -55,5 +57,12 @@ function Stat({ icon, title, value, color }) {
     </StyledStat>
   );
 }
+
+Stat.propTypes = {
+  icon: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  value: PropTypes.node.isRequired,
+  color: PropTypes.string.isRequired,
+};
 
 export default Stat;

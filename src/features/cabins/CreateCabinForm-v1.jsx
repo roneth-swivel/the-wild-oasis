@@ -31,12 +31,8 @@ function CreateCabinForm() {
     mutate({ ...data, image: data.image[0] });
   }
 
-  function onError(errors) {
-    // console.log(errors);
-  }
-
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           type="text"
@@ -72,7 +68,7 @@ function CreateCabinForm() {
             required: "This field is required",
             min: {
               value: 1,
-              message: "Capacity should be at least 1",
+              message: "Price should be at least 1",
             },
           })}
         />
@@ -99,7 +95,6 @@ function CreateCabinForm() {
         error={errors?.description?.message}
       >
         <Textarea
-          type="number"
           id="description"
           defaultValue=""
           disabled={isCreating}
@@ -120,7 +115,6 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow>
-        {/* type is an HTML attribute! */}
         <Button variation="secondary" type="reset">
           Cancel
         </Button>
